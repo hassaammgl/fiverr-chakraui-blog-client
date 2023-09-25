@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 
 const Header = () => {
-  document.title = "Blog Chakra 😎"
   return (
     <Center display={"flex"}
       alignItems={"center"}
