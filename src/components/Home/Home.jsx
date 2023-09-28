@@ -1,4 +1,5 @@
 import { Center, Box, HStack, VStack, Tag, Heading } from "@chakra-ui/react";
+import MostViewed from "./MostViewed";
 
 const Home = () => {
   return (
@@ -8,7 +9,17 @@ const Home = () => {
       flexDirection={"column"}
       justifyContent={"center"}
     >
-      <Heading as={"h1"}>Trendings</Heading>
+      <Heading
+        bgColor={"black"}
+        color={"white"}
+        p={"3"}
+        w="70%"
+        m={3}
+        textAlign={"center"}
+        as={"h1"}
+      >
+        Trendings
+      </Heading>
       <Box w={"70%"} bgColor={"white"} p={4}>
         <HStack gap={"3rem"}>
           <Box
@@ -112,6 +123,7 @@ const Home = () => {
           </VStack>
         </HStack>
       </Box>
+      <MostViewed/>
     </Center>
   );
 };
