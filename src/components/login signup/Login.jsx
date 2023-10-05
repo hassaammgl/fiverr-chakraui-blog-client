@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Center,
   Box,
@@ -32,8 +33,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [showPassword, setShowPassword] = useState("password");
-
-  const handleVisibilityPassword = () => {}
+  const handleSubmit = () => {};
+  const handleVisibilityPassword = () => {
+    setShowPassword(showPassword === "password" ? "text" : "password");
+  };
   return (
     <Center>
       <Box m={23} width={getBoxwidth}>
@@ -57,7 +60,8 @@ const Login = () => {
                   focusBorderColor="white"
                   border={"none"}
                   outline={"none"}
-                  type="text"
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
                   placeholder="Email"
                 />
               </InputGroup>
@@ -66,13 +70,20 @@ const Login = () => {
                   <KeyRoundedIcon />
                 </InputLeftElement>
                 <InputRightElement>
-                  <Button></Button>
+                  <Button onClick={handleVisibilityPassword}>
+                    {showPassword === "text" ? (
+                      <VisibilityOffRoundedIcon />
+                    ) : (
+                      <VisibilityRoundedIcon />
+                    )}
+                  </Button>
                 </InputRightElement>
                 <Input
                   boxShadow={"2xl"}
                   focusBorderColor="white"
                   border={"none"}
                   outline={"none"}
+                  onChange={(e) => setPassword(e.target.value)}
                   type={showPassword}
                   placeholder="Password"
                 />
@@ -80,7 +91,11 @@ const Login = () => {
               <InputGroup>
                 <InputRightElement>
                   <Button onClick={handleVisibilityPassword}>
-                    <VisibilityOffRoundedIcon/>
+                    {showPassword === "text" ? (
+                      <VisibilityOffRoundedIcon />
+                    ) : (
+                      <VisibilityRoundedIcon />
+                    )}
                   </Button>
                 </InputRightElement>
                 <InputLeftElement>
@@ -91,6 +106,7 @@ const Login = () => {
                   focusBorderColor="white"
                   border={"none"}
                   outline={"none"}
+                  onChange={(e) => setCpassword(e.target.value)}
                   type={showPassword}
                   placeholder="Confirm Password"
                 />
@@ -103,10 +119,18 @@ const Login = () => {
               _hover={{ opacity: 0.8 }}
               _active={{ fontSize: "17" }}
               fontWeight={"hairline"}
+              onClick={handleSubmit}
               type="submit"
             >
               Login
             </Button>
+
+            <Text>
+              Don&apso;t have an acount{" "}
+              <Link to={"/signup"} style={{ color: "rgba(246, 33, 75, 1)" }}>
+                Sign up
+              </Link>
+            </Text>
           </VStack>
           <VStack
             bgGradient={"linear(to-b,rgba(246, 33, 75, 1), #FF0080)"}
