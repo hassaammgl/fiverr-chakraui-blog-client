@@ -8,7 +8,15 @@ import {
   Button,
   Text,
   Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
 } from "@chakra-ui/react";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+import KeyRoundedIcon from "@mui/icons-material/KeyRounded";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
+import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
+import { useState } from "react";
 
 const Login = () => {
   const width = window.innerWidth;
@@ -19,6 +27,13 @@ const Login = () => {
       return "400px";
     }
   };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
+  const [showPassword, setShowPassword] = useState("password");
+
+  const handleVisibilityPassword = () => {}
   return (
     <Center>
       <Box m={23} width={getBoxwidth}>
@@ -33,30 +48,53 @@ const Login = () => {
         >
           <VStack w={"100%"} p={2}>
             <Stack display={"flex"} w={"100%"} p={2}>
-              <Input
-                boxShadow={"2xl"}
-                focusBorderColor="white"
-                border={"none"}
-                outline={"none"}
-                type="text"
-                placeholder="Email"
-              />
-              <Input
-                boxShadow={"2xl"}
-                focusBorderColor="white"
-                border={"none"}
-                outline={"none"}
-                type="password"
-                placeholder="Password"
-              />
-              <Input
-                boxShadow={"2xl"}
-                focusBorderColor="white"
-                border={"none"}
-                outline={"none"}
-                type="password"
-                placeholder="Confirm Password"
-              />
+              <InputGroup>
+                <InputLeftElement>
+                  <PersonRoundedIcon />
+                </InputLeftElement>
+                <Input
+                  boxShadow={"2xl"}
+                  focusBorderColor="white"
+                  border={"none"}
+                  outline={"none"}
+                  type="text"
+                  placeholder="Email"
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputLeftElement>
+                  <KeyRoundedIcon />
+                </InputLeftElement>
+                <InputRightElement>
+                  <Button></Button>
+                </InputRightElement>
+                <Input
+                  boxShadow={"2xl"}
+                  focusBorderColor="white"
+                  border={"none"}
+                  outline={"none"}
+                  type={showPassword}
+                  placeholder="Password"
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputRightElement>
+                  <Button onClick={handleVisibilityPassword}>
+                    <VisibilityOffRoundedIcon/>
+                  </Button>
+                </InputRightElement>
+                <InputLeftElement>
+                  <KeyRoundedIcon />
+                </InputLeftElement>
+                <Input
+                  boxShadow={"2xl"}
+                  focusBorderColor="white"
+                  border={"none"}
+                  outline={"none"}
+                  type={showPassword}
+                  placeholder="Confirm Password"
+                />
+              </InputGroup>
             </Stack>
             <Button
               bgColor={"rgba(246, 33, 75, 1)"}
