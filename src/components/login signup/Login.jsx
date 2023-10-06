@@ -18,6 +18,7 @@ import KeyRoundedIcon from "@mui/icons-material/KeyRounded";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import { useState } from "react";
+import { AxiosLogin } from "../Axios/Axios";
 
 const Login = () => {
   const width = window.innerWidth;
@@ -33,25 +34,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [showPassword, setShowPassword] = useState("password");
-  const handleSubmit = () => {};
+  let mb = "4";
+  const handleSubmit = async () => {
+    const result = await AxiosLogin(email, password, cpassword);
+    console.log(result);
+  };
   const handleVisibilityPassword = () => {
     setShowPassword(showPassword === "password" ? "text" : "password");
   };
   return (
     <Center>
       <Box m={23} width={getBoxwidth}>
-        <Heading textAlign={"center"} m={5}>
+        <Heading
+          fontSize={"5xl"}
+          fontWeight={"semibold"}
+          textAlign={"center"}
+          m={5}
+        >
           Login
         </Heading>
         <HStack
+          border={"2px"}
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
           flexDirection={["column-reverse", "row"]}
         >
-          <VStack w={"100%"} p={2}>
-            <Stack display={"flex"} w={"100%"} p={2}>
-              <InputGroup>
+          <VStack w={"100%"} h={"100%"} p={2}>
+            <Stack display={"flex"} h={"100%"} w={"100%"} p={2}>
+              <InputGroup marginBottom={mb}>
                 <InputLeftElement>
                   <PersonRoundedIcon />
                 </InputLeftElement>
@@ -65,7 +76,7 @@ const Login = () => {
                   placeholder="Email"
                 />
               </InputGroup>
-              <InputGroup>
+              <InputGroup marginBottom={mb}>
                 <InputLeftElement>
                   <KeyRoundedIcon />
                 </InputLeftElement>
@@ -88,7 +99,7 @@ const Login = () => {
                   placeholder="Password"
                 />
               </InputGroup>
-              <InputGroup>
+              <InputGroup marginBottom={mb}>
                 <InputRightElement>
                   <Button onClick={handleVisibilityPassword}>
                     {showPassword === "text" ? (
@@ -126,21 +137,32 @@ const Login = () => {
             </Button>
 
             <Text>
-              Don&apso;t have an acount{" "}
+              Don&apos;t have an account{" "}
               <Link to={"/signup"} style={{ color: "rgba(246, 33, 75, 1)" }}>
-                Sign up
+                Sign up!
               </Link>
             </Text>
           </VStack>
           <VStack
             bgGradient={"linear(to-b,rgba(246, 33, 75, 1), #FF0080)"}
             w={"100%"}
-            h={"100%"}
+            h={["100%", "sm"]}
             color={"white"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
             p={2}
           >
-            <Heading fontWeight={"hairline"}>Glad to see you!</Heading>
-            <Text>Hi, I&apos;m Hassaam and I&apos;m happy to see you.</Text>
+            <Heading
+              fontSize={["2rem", "3rem"]}
+              textAlign={"center"}
+              fontWeight={"hairline"}
+            >
+              Glad to see you!
+            </Heading>
+            <Text textAlign={"center"}>
+              Hi, I&apos;m Hassaam and I&apos;m happy to see you.
+            </Text>
           </VStack>
         </HStack>
       </Box>
