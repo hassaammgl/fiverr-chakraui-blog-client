@@ -13,8 +13,8 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
-import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import KeyRoundedIcon from "@mui/icons-material/KeyRounded";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import { useState } from "react";
@@ -54,7 +54,6 @@ const Login = () => {
           Login
         </Heading>
         <HStack
-          border={"2px"}
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
@@ -64,7 +63,7 @@ const Login = () => {
             <Stack display={"flex"} h={"100%"} w={"100%"} p={2}>
               <InputGroup marginBottom={mb}>
                 <InputLeftElement>
-                  <PersonRoundedIcon />
+                  <AlternateEmailIcon />
                 </InputLeftElement>
                 <Input
                   boxShadow={"2xl"}

@@ -3,9 +3,14 @@ import Header from "./components/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./style.css";
 import Loader from "./components/Loader/Loader";
-const Login = lazy(() => import("./components/login signup/Login"));
-const Signup = lazy(() => import("./components/login signup/Signup"));
+const Login = lazy(() =>
+  import("./components/login signup security questions/Login")
+);
+const Signup = lazy(() =>
+  import("./components/login signup security questions/Signup")
+);
 const Home = lazy(() => import("./components/Home/Home"));
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -18,6 +23,18 @@ const App = () => {
           <Route exact path="/signup" element={<Signup />} />
         </Routes>
       </Suspense>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </Router>
   );
 };
