@@ -11,6 +11,7 @@ const Signup = lazy(() =>
 );
 const Home = lazy(() => import("./components/Home/Home"));
 import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         pauseOnHover
         theme="light"
       />
+      <Footer/>
     </Router>
   );
 };

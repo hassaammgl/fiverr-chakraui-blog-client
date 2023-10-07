@@ -43,7 +43,7 @@ const Login = () => {
     setShowPassword(showPassword === "password" ? "text" : "password");
   };
   return (
-    <Center>
+    <Center height={'70vh'}>
       <Box m={23} width={getBoxwidth}>
         <Heading
           fontSize={"5xl"}
