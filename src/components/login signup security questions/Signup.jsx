@@ -21,6 +21,7 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import { useState } from "react";
 import { AxiosSignup } from "../Axios/Axios";
 
+
 const Signup = () => {
   const width = window.innerWidth;
   const getBoxwidth = () => {
@@ -31,20 +32,28 @@ const Signup = () => {
     }
   };
 
+
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [showPassword, setShowPassword] = useState("password");
   let mb = "4";
-  const handleSubmit = async () => {
-    const result = await AxiosSignup(email, password, cpassword);
-    console.log(result);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await AxiosSignup(username, email, password, cpassword)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const handleVisibilityPassword = () => {
     setShowPassword(showPassword === "password" ? "text" : "password");
   };
   return (
-    <Center height={'70vh'}>
+    <Center height={"70vh"}>
       <Box m={23} width={getBoxwidth}>
         <Heading
           fontSize={"5xl"}
@@ -71,7 +80,8 @@ const Signup = () => {
                   focusBorderColor="white"
                   border={"none"}
                   outline={"none"}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="username"
+                  onChange={(e) => setUsername(e.target.value)}
                   type="text"
                   placeholder="Username"
                 />

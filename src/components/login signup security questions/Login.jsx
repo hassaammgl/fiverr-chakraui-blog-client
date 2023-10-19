@@ -35,7 +35,8 @@ const Login = () => {
   const [cpassword, setCpassword] = useState("");
   const [showPassword, setShowPassword] = useState("password");
   let mb = "4";
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const result = await AxiosLogin(email, password, cpassword);
     console.log(result);
   };

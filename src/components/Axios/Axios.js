@@ -1,32 +1,31 @@
 import axios from "axios";
 
-const domain = "http://localhost:3000";
-
-const AxiosLogin = async (email, password, confirmPassword) => {
-  await axios
-    .post(
-      `${domain}/api/v1/user/login`,
-      {
-        email,
-        password,
-        confirmPassword,
-      },
-      {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.log(error);
-      return error;
-    });
+const options = {
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
 };
 
-const AxiosSignup = async () => {};
+const AxiosLogin = async (email, password, confirmPassword) => {
+  const data = {
+    email,
+    password,
+    confirmPassword,
+  };
 
-export { AxiosLogin,AxiosSignup };
+  return await axios.post(`http://localhost:3000/api/v1/user/login`, data, options);
+};
+
+const AxiosSignup = async (name, email, password, confirmPassword) => {
+  const data = {
+    name,
+    email,
+    password,
+    confirmPassword,
+  };
+
+  return await axios.post(`http://localhost:3000/api/v1/user/register`, data, options);
+};
+
+export { AxiosLogin, AxiosSignup };

@@ -13,6 +13,7 @@ const Home = lazy(() => import("./components/Home/Home"));
 import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 
+
 const App = () => {
   return (
     <Router>
@@ -32,11 +33,12 @@ const App = () => {
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
+        className={"toast-container"}
         draggable
         pauseOnHover
         theme="light"
       />
-      <Footer/>
+      <Footer />
     </Router>
   );
 };
