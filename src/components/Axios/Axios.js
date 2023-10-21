@@ -14,7 +14,11 @@ const AxiosLogin = async (email, password, confirmPassword) => {
     confirmPassword,
   };
 
-  return await axios.post(`http://localhost:3000/api/v1/user/login`, data, options);
+  return await axios.post(
+    `http://localhost:3000/api/v1/user/login`,
+    data,
+    options
+  );
 };
 
 const AxiosSignup = async (name, email, password, confirmPassword) => {
@@ -25,7 +29,11 @@ const AxiosSignup = async (name, email, password, confirmPassword) => {
     confirmPassword,
   };
 
-  return await axios.post(`http://localhost:3000/api/v1/user/register`, data, options);
+  return await axios.post(
+    `http://localhost:3000/api/v1/user/register`,
+    data,
+    options
+  );
 };
 
 export { AxiosLogin, AxiosSignup };
