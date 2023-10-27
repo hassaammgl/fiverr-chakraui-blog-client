@@ -10,9 +10,10 @@ const Signup = lazy(() =>
   import("./components/login signup security questions/Signup")
 );
 const Home = lazy(() => import("./components/Home/Home"));
+const BlogPage = lazy(() => import("./components/ReadBlog/BlogPage"));
+const AuthorBlogs = lazy(() => import("./components/Author/AuthorBlogs"));
 import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
-
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/read-blog/:id" element={<BlogPage />} />
+          <Route exact path="/author/:author_id" element={<AuthorBlogs />} />
         </Routes>
       </Suspense>
       <ToastContainer

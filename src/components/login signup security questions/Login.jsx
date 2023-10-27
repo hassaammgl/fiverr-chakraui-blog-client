@@ -21,6 +21,9 @@ import { useState } from "react";
 import { AxiosLogin } from "../Axios/Axios";
 
 const Login = () => {
+
+  document.title = "Login Page";
+
   const width = window.innerWidth;
   const getBoxwidth = () => {
     if (width > 1020) {

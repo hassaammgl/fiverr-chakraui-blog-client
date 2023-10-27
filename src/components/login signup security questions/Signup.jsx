@@ -23,6 +23,9 @@ import { AxiosSignup } from "../Axios/Axios";
 
 
 const Signup = () => {
+
+  document.title = "Signup Page";
+
   const width = window.innerWidth;
   const getBoxwidth = () => {
     if (width > 1020) {

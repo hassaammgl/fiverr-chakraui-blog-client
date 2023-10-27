@@ -1,11 +1,7 @@
-
+import { Center, Box, HStack, VStack, Tag, Heading } from "@chakra-ui/react";
 
 const MostViewed = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default MostViewed
+export default MostViewed;

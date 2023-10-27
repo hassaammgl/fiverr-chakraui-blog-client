@@ -19,3 +19,9 @@
     color: black !important;
   }
 }
+
+.article::first-letter {
+  font-size: 3rem;
+  initial-letter: 4 !important;
+  margin-right: 9px;
+}
